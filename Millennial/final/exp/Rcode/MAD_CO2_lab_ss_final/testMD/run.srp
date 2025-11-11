@@ -1,0 +1,65 @@
+#!/bin/bash
+#SBATCH -J expPars
+#SBATCH -p cn-long2
+#SBATCH -N 1 
+#SBATCH -c 5
+#SBATCH -o /datanode05/liucq/log/expPars_%j.out
+#SBATCH -e /datanode05/liucq/log/expPars_%j.err
+#SBATCH --no-requeue
+#SBATCH -A cnl2
+
+source ~/.bashrc
+pwd
+
+cd /datanode05/liucq/python/Millennial/final/exp/Rcode/MAD_CO2_lab_ss_final/testMD
+
+conda activate liucqR2
+
+#Rscript 1_soilExpDoParallel_mutiChange1.R &
+#Rscript 1_soilExpDoParallel_mutiChange2.R &
+#Rscript 1_soilExpDoParallel_mutiChange3.R &
+#Rscript 1_soilExpDoParallel_mutiChange4.R &
+#Rscript 1_soilExpDoParallel_mutiChange5.R &
+#Rscript 1_soilExpDoParallel_mutiChange6.R &
+#Rscript 1_soilExpDoParallel_mutiChange7.R &
+#Rscript 1_soilExpDoParallel_mutiChange8.R &
+#Rscript 1_soilExpDoParallel_mutiChange9.R &
+#Rscript 1_soilExpDoParallel_mutiChange10.R &
+
+#Rscript 1_soilExpDoParallel_fixBeta1.R &
+#Rscript 1_soilExpDoParallel_fixBeta2.R &
+#Rscript 1_soilExpDoParallel_fixBeta3.R &
+#Rscript 1_soilExpDoParallel_fixBeta4.R &
+#Rscript 1_soilExpDoParallel_fixBeta5.R &
+#Rscript 1_soilExpDoParallel_fixBeta6.R &
+#Rscript 1_soilExpDoParallel_fixBeta7.R &
+#Rscript 1_soilExpDoParallel_fixBeta8.R &
+#Rscript 1_soilExpDoParallel_fixBeta9.R &
+#Rscript 1_soilExpDoParallel_fixBeta10.R &
+
+Rscript 1_soilExpDoParallel_fixBeta1T_litter.R &
+Rscript 1_soilExpDoParallel_fixBeta2T_litter.R &
+Rscript 1_soilExpDoParallel_fixBeta3T_litter.R &
+Rscript 1_soilExpDoParallel_fixBeta4T_litter.R &
+Rscript 1_soilExpDoParallel_fixBeta5T_litter.R &
+Rscript 1_soilExpDoParallel_fixBeta6T_litter.R &
+Rscript 1_soilExpDoParallel_fixBeta7T_litter.R &
+Rscript 1_soilExpDoParallel_fixBeta8T_litter.R &
+Rscript 1_soilExpDoParallel_fixBeta9T_litter.R &
+Rscript 1_soilExpDoParallel_fixBeta10T_litter.R #&
+
+#Rscript 1_soilExpDoParallel_fixBeta12.R &
+#Rscript 1_soilExpDoParallel_fixBeta22.R &
+#Rscript 1_soilExpDoParallel_fixBeta32.R &
+#Rscript 1_soilExpDoParallel_fixBeta42.R &
+#Rscript 1_soilExpDoParallel_fixBeta52.R &
+#Rscript 1_soilExpDoParallel_fixBeta62.R &
+#Rscript 1_soilExpDoParallel_fixBeta72.R &
+#Rscript 1_soilExpDoParallel_fixBeta82.R &
+#Rscript 1_soilExpDoParallel_fixBeta92.R &
+#Rscript 1_soilExpDoParallel_fixBeta102.R #&
+
+wait
+
+echo "1_soilExpDoParallel.R finished"
+
