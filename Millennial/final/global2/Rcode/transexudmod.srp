@@ -1,0 +1,60 @@
+#!/bin/bash
+#SBATCH -J trans_plantc
+#SBATCH -p cn-long2
+#SBATCH -N 1 
+#SBATCH -c 6
+#SBATCH -o /datanode05/liucq/log/trans_%j.out
+#SBATCH -e /datanode05/liucq/log/trans_%j.err
+#SBATCH --no-requeue
+#SBATCH -A cnl2
+
+#source ~/.bashrc
+
+
+source /datanode05/liucq/soft/miniconda3/etc/profile.d/conda.sh
+
+pwd
+
+#source /data01nfs/user/liucq/soft/miniconda3/bin/activate liucqR2
+
+# 设置环境变量
+#export PATH="$CONDA_PREFIX/bin:$PATH"
+
+# 输出当前使用的 g++
+echo "Using g++ from: $(which g++)"
+
+#cd /data01nfs/user/liucq/python/Millennial/final/global2/Rcode
+cd /datanode05/liucq/python/Millennial/final/global2/Rcode
+#source /apps/source/anaconda3.sh
+
+conda activate liucqR2
+
+#Rscript trans_pre_load_mode1_foa25.R &
+#Rscript trans_pre_load_mode2_foa25.R &
+#Rscript trans_pre_load_mode3_foa25.R &
+
+#Rscript trans_pre_load_mode1_foa50_exud1.R &
+Rscript trans_pre_load_mode2_foa50_exud1_ssp585.R &
+#Rscript trans_pre_load_mode3_foa50_exud1.R &
+
+#Rscript trans_pre_load_mode1_foa50_exud2.R &
+#Rscript trans_pre_load_mode2_foa50_exud2.R &
+#Rscript trans_pre_load_mode3_foa50_exud2.R
+
+#Rscript trans_pre_load_mode1_foa75.R &
+#Rscript trans_pre_load_mode2_foa75.R &
+#Rscript trans_pre_load_mode3_foa75.R 
+
+#Rscript pre_load2.R &
+#Rscript pre_load4.R &
+#Rscript pre_load5.R &
+wait
+#Rscript plot_allfigure_linux_dataprocess_exud1.R
+#Rscript plotF_global_linux_base1.R
+#Rscript plotF_global_linux_Ts3.R
+#Rscript plotF_global_linux_Oa1.R
+#Rscript plotF_global_linux_Exud3.R
+#Rscript plotF_global_linux_OaExud1.R
+echo "ss_run.R finished"
+#env > slurm_env.txt
+

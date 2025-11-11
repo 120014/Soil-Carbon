@@ -1,0 +1,61 @@
+#!/bin/bash
+#SBATCH -J fact12
+#SBATCH -p cn-long2
+#SBATCH -N 1
+#SBATCH -c 14
+#SBATCH -o /datanode05/liucq/log/fact_%j.out
+#SBATCH -e /datanode05/liucq/log/fact_%j.err
+#SBATCH --no-requeue
+#SBATCH -A cnl2
+
+source ~/.bashrc
+pwd
+
+#source /data01nfs/user/liucq/soft/miniconda3/bin/activate liucqR2
+
+# 设置环境变量
+#export PATH="$CONDA_PREFIX/bin:$PATH"
+
+# 输出当前使用的 g++
+echo "Using g++ from: $(which g++)"
+
+#cd /data01nfs/user/liucq/python/Millennial/final/global2/Rcode
+cd /datanode05/liucq/python/Millennial/final/global2/Rcode
+#source /apps/source/anaconda3.sh
+
+conda activate liucqR2
+
+Rscript zfact_pre_load_mode1_1ssp2015_foa50_exud1.R &
+Rscript zfact_pre_load_mode1_2TsChang_foa50_exud1.R &
+Rscript zfact_pre_load_mode1_3OaChang_foa50_exud1.R &
+Rscript zfact_pre_load_mode1_4TsOaChangDes0_foa50_exud1.R & 
+
+Rscript zfact_pre_load_mode2_1ssp2015_foa50_exud1.R &
+Rscript zfact_pre_load_mode2_2TsChang_foa50_exud1.R &
+Rscript zfact_pre_load_mode2_3OaChang_foa50_exud1.R &
+Rscript zfact_pre_load_mode2_4TsOaChangDes0_foa50_exud1.R &
+
+Rscript zfact_pre_load_mode3_1ssp2015_foa50_exud1.R &
+Rscript zfact_pre_load_mode3_2TsChang_foa50_exud1.R &
+Rscript zfact_pre_load_mode3_3OaChang_foa50_exud1.R &
+Rscript zfact_pre_load_mode3_4TsOaChangDes0_foa50_exud1.R &
+
+
+Rscript zfact_pre_load_mode1_1ssp2015_foa50_exud2.R &
+Rscript zfact_pre_load_mode1_2TsChang_foa50_exud2.R &
+Rscript zfact_pre_load_mode1_3OaChang_foa50_exud2.R &
+Rscript zfact_pre_load_mode1_4TsOaChangDes0_foa50_exud2.R &
+
+Rscript zfact_pre_load_mode2_1ssp2015_foa50_exud2.R &
+Rscript zfact_pre_load_mode2_2TsChang_foa50_exud2.R &
+Rscript zfact_pre_load_mode2_3OaChang_foa50_exud2.R &
+Rscript zfact_pre_load_mode2_4TsOaChangDes0_foa50_exud2.R &
+
+Rscript zfact_pre_load_mode3_1ssp2015_foa50_exud2.R &
+Rscript zfact_pre_load_mode3_2TsChang_foa50_exud2.R &
+Rscript zfact_pre_load_mode3_3OaChang_foa50_exud2.R &
+Rscript zfact_pre_load_mode3_4TsOaChangDes0_foa50_exud2.R 
+
+wait
+
+#Rscript plot_factexp_linux_dataprocess_exud1.R
